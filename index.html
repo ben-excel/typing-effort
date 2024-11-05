@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Effort Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px;
+        }
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Typing Effort Calculator</h1>
+    <p>Enter a comma-separated list of words:</p>
+    <input type="text" id="wordInput" placeholder="e.g. hello, typewriter, qwerty">
+    <button onclick="calculateEffort()">Calculate</button>
+
+    <div id="result"></div>
+
+    <script>
+        const qwertyLayout = {
+            'q': [0, 0], 'w': [0, 1], 'e': [0, 2], 'r': [0, 3], 't': [0, 4],
+            'y': [0, 5], 'u': [0, 6], 'i': [0, 7], 'o': [0, 8], 'p': [0, 9],
+            'a': [1, 0], 's': [1, 1], 'd': [1, 2], 'f': [1, 3], 'g': [1, 4],
+            'h': [1, 5], 'j': [1, 6], 'k': [1, 7], 'l': [1, 8],
+            'z': [2, 0], 'x': [2, 1], 'c': [2, 2], 'v': [2, 3], 'b': [2, 4],
+            'n': [2, 5], 'm': [2, 6]
+        };
+
+        const handMap = {
+            'q': 'left', 'w': 'left', 'e': 'left', 'r': 'left', 't': 'left',
+            'y': 'right', 'u': 'right', 'i': 'right', 'o': 'right', 'p': 'right',
+            'a': 'left', 's': 'left', 'd': 'left', 'f': 'left', 'g': 'left',
+            'h': 'right', 'j': 'right', 'k': 'right', 'l': 'right',
+            'z': 'left', 'x': 'left', 'c': 'left', 'v': 'left', 'b': 'left',
+            'n': 'right', 'm': 'right'
+        };
+
+        const homeRow = new Set('asdfjkl;');
+
+        function typingEffort(word) {
+            let effort = 0;
+            let previousHand = null;
+            let previousPosition = null;
+            const topBottomRowPenalty = 2;
+
+            for (let char of word.toLowerCase()) {
+                if (!qwertyLayout[char]) continue;
+                const currentHand = handMap[char];
+                const currentPosition = qwertyLayout[char];
+
+                if (homeRow.has(char)) {
+                    effort += 0.5;
+                } else {
+                    if (previousPosition && previousPosition[0] !== currentPosition[0]) {
+                        effort += topBottomRowPenalty;
+                    }
+                }
+
+                if (previousHand && previousHand !== currentHand) {
+                    effort += 1;
+                }
+
+                previousHand = currentHand;
+                previousPosition = currentPosition;
+            }
+
+            return effort;
+        }
+
+        function calculateEffort() {
+            const input = document.getElementById("wordInput").value;
+            const words = input.split(',').map(word => word.trim());
+            const efforts = words.map(word => [word, typingEffort(word)]);
+            efforts.sort((a, b) => b[1] - a[1]);
+
+            let result = "<h2>Results:</h2><ul>";
+            for (const [word, effort] of efforts) {
+                result += `<li>${word}: ${effort.toFixed(1)}</li>`;
+            }
+            result += "</ul>";
+            document.getElementById("result").innerHTML = result;
+        }
+    </script>
+</body>
+</html>
