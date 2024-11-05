@@ -16,7 +16,7 @@
 <script>
 function calculateEffort() {
   const wordsInput = document.getElementById("wordsInput").value;
-  const words = wordsInput.split(",").map(word => word.trim());
+  const effort = calculateWordEffort(word);
 
   const effortScores = words.map(word => {
     const effort = calculateWordEffort(word.strip()); // Strip whitespace here
