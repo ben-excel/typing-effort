@@ -27,9 +27,18 @@ function calculateEffort() {
 
   const resultsDiv = document.getElementById("results");
   resultsDiv.innerHTML = "<h2>Effort scores (hardest to easiest):</h2>";
+
+  // Comma-separated list
+  const commaSeparatedList = effortScores.map(item => `${item.word} (${item.effort})`).join(", ");
+  resultsDiv.innerHTML += `<p>Comma-separated: ${commaSeparatedList}</p>`;
+
+  // Bulleted list
+  let bulletedList = "<ul>";
   effortScores.forEach(item => {
-    resultsDiv.innerHTML += `<p>${item.word}: ${item.effort}</p>`;
+    bulletedList += `<li>${item.word}: ${item.effort}</li>`;
   });
+  bulletedList += "</ul>";
+  resultsDiv.innerHTML += bulletedList;
 }
 
 function calculateWordEffort(word) {
