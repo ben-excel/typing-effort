@@ -19,7 +19,7 @@ function calculateEffort() {
   const words = wordsInput.split(",").map(word => word.trim());
 
   const effortScores = words.map(word => {
-    const effort = calculateWordEffort(word);
+    const effort = calculateWordEffort(word.strip()); // Strip whitespace here
     return { word, effort };
   });
 
