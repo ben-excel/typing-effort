@@ -83,6 +83,7 @@ function calculateWordEffort(word) {
   let prevPos = null;
   let prevHand = null;
   let prevFinger = null;
+  let prevChar = null;
 
   for (const char of word) {
     if (char === ' ') {
@@ -91,6 +92,7 @@ function calculateWordEffort(word) {
       prevPos = null; // Resetting position for a new word
       prevHand = 'r'; // Assuming right thumb for space
       prevFinger = 'thumb';
+      prevChar = ' ';
     } else if (char in keyboard) {
       const currPos = keyboard[char];
       const currHand = currPos[2];
@@ -118,6 +120,7 @@ function calculateWordEffort(word) {
       prevPos = currPos.slice(0, 2);
       prevHand = currHand;
       prevFinger = currFinger;
+      prevChar = char;
     }
   }
 
