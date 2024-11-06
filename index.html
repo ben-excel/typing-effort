@@ -70,12 +70,12 @@ function calculateEffort() {
 
 function calculateWordEffort(word) {
   const keyboard = {
-    'q': [0, 0, 'l', 'pinky'], 'w': [0, 1, 'l', 'ring'], 'e': [0, 2, 'l', 'middle'], 'r': [0, 3, 'l', 'index'], 't': [0, 4, 'l', 'index'],
-    'y': [0, 5, 'r', 'index'], 'u': [0, 6, 'r', 'index'], 'i': [0, 7, 'r', 'middle'], 'o': [0, 8, 'r', 'ring'], 'p': [0, 9, 'r', 'pinky'], '-': [0, 10, 'r', 'pinky'],
-    'a': [1, 0, 'l', 'pinky'], 's': [1, 1, 'l', 'ring'], 'd': [1, 2, 'l', 'middle'], 'f': [1, 3, 'l', 'index'], 'g': [1, 4, 'l', 'index'],
-    'h': [1, 5, 'r', 'index'], 'j': [1, 6, 'r', 'index'], 'k': [1, 7, 'r', 'middle'], 'l': [1, 8, 'r', 'ring'], ';': [1, 9, 'r', 'pinky'],
-    'z': [2, 0, 'l', 'pinky'], 'x': [2, 1, 'l', 'ring'], 'c': [2, 2, 'l', 'middle'], 'v': [2, 3, 'l', 'index'], 'b': [2, 4, 'l', 'index'],
-    'n': [2, 5, 'r', 'index'], 'm': [2, 6, 'r', 'index']
+    'q': [0, 0, 'left', 'left-pinky'], 'w': [0, 1, 'left', 'left-ring'], 'e': [0, 2, 'left', 'left-middle'], 'r': [0, 3, 'left', 'left-index'], 't': [0, 4, 'left', 'left-index'],
+    'y': [0, 5, 'right', 'right-index'], 'u': [0, 6, 'right', 'right-index'], 'i': [0, 7, 'right', 'right-middle'], 'o': [0, 8, 'right', 'right-ring'], 'p': [0, 9, 'right', 'right-pinky'], '-': [0, 10, 'right', 'right-pinky'],
+    'a': [1, 0, 'left', 'left-pinky'], 's': [1, 1, 'left', 'left-ring'], 'd': [1, 2, 'left', 'left-middle'], 'f': [1, 3, 'left', 'left-index'], 'g': [1, 4, 'left', 'left-index'],
+    'h': [1, 5, 'right', 'right-index'], 'j': [1, 6, 'right', 'right-index'], 'k': [1, 7, 'right', 'right-middle'], 'l': [1, 8, 'right', 'right-ring'], ';': [1, 9, 'right', 'right-pinky'],
+    'z': [2, 0, 'left', 'left-pinky'], 'x': [2, 1, 'left', 'left-ring'], 'c': [2, 2, 'left', 'left-middle'], 'v': [2, 3, 'left', 'left-index'], 'b': [2, 4, 'left', 'left-index'],
+    'n': [2, 5, 'right', 'right-index'], 'm': [2, 6, 'right', 'right-index']
   };
 
   word = word.toLowerCase();
