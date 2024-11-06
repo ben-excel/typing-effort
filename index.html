@@ -41,10 +41,10 @@ h1 {
 <script>
 function calculateEffort() {
   const wordsInput = document.getElementById("wordsInput").value;
-  const effort = calculateWordEffort(word);
+  const words = wordsInput.split(",").map(word => word.trim());
 
   const effortScores = words.map(word => {
-    const effort = calculateWordEffort(word.strip()); // Strip whitespace here
+    const effort = calculateWordEffort(word);
     return { word, effort };
   });
 
