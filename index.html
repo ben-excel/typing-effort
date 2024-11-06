@@ -60,11 +60,11 @@ function calculateEffort() {
   effortScores.sort((a, b) => b.effort - a.effort); // Sort descending
 
   const resultsDiv = document.getElementById("results");
-  resultsDiv.innerHTML = "<h2>Effort scores (hardest to easiest):</h2>";
+  resultsDiv.innerHTML = "<h2>Words listed from hardest to easiest and effort scores:</h2>";
 
   // Comma-separated list (no effort scores)
   const sortedWords = effortScores.map(item => item.word);
-  resultsDiv.innerHTML += `<p>Sorted words: ${sortedWords.join(", ")}</p>`;
+  resultsDiv.innerHTML += `<p>${sortedWords.join(", ")}</p>`;
 
   // Bulleted list (with effort scores)
   resultsDiv.innerHTML += "<ul>";
