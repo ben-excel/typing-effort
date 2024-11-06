@@ -88,7 +88,7 @@ function calculateWordEffort(word) {
   for (const char of word) {
     if (char === ' ') {
       // Assuming spacebar is pressed with the right thumb
-      effort += 1.0; // Add effort for space 
+      effort += 1.5; // Add effort for space 
       prevPos = null; // Resetting position for a new word
       prevHand = 'r'; // Assuming right thumb for space
       prevFinger = 'thumb';
