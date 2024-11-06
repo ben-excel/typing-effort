@@ -33,7 +33,7 @@ h1 {
 
 <h1>QWERTY Effort Calculator</h1>
 
-<p>This tool calculates the effort required to type words on a QWERTY keyboard, considering factors like: Distance between keys, Finger alternation, Hand usage, Row changes, Spaces.</p>
+<p>This tool tries to calculate the effort required to type words on a QWERTY keyboard, considering factors like: Distance between keys, Finger alternation, Hand usage, Row changes, Spaces.</p>
 
 <p>Enter a comma-separated list of words:</p>
 <input type="text" id="wordsInput" size="50">
@@ -54,7 +54,7 @@ function calculateEffort() {
   effortScores.sort((a, b) => b.effort - a.effort); // Sort descending
 
   const resultsDiv = document.getElementById("results");
-  resultsDiv.innerHTML = "<h2>Words listed from hardest to easiest and effort scores:</h2>";
+  resultsDiv.innerHTML = "<h2>Words sorted from 'hardest' to 'easiest':</h2>";
 
   // Comma-separated list (no effort scores)
   const sortedWords = effortScores.map(item => item.word);
