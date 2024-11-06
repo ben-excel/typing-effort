@@ -90,8 +90,8 @@ function calculateWordEffort(word) {
       // Assuming spacebar is pressed with the right thumb
       effort += 1.5; // Add effort for space 
       prevPos = null; // Resetting position for a new word
-      prevHand = 'r'; // Assuming right thumb for space
-      prevFinger = 'thumb';
+      prevHand = 'right'; // Assuming right thumb for space
+      prevFinger = 'right-thumb';
       prevChar = ' ';
     } else if (char in keyboard) {
       const currPos = keyboard[char];
